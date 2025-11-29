@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 async function createSession() {
   const kernel = new Kernel({
-    apiKey: process.env.KERNEL_API_KEY!,
+    apiKey: "sk_d1b762ed-a8b5-416e-9692-64129a950be5.WAsoWIiEJP4Qs8RB5jb3FF2Fynz5x/JUUqKQ3nCgLdw",
   });
 
   const browser = await kernel.browsers.create({
@@ -24,7 +24,7 @@ async function createSession() {
 
 async function endSession(sessionId: string) {
   const kernel = new Kernel({
-    apiKey: process.env.KERNEL_API_KEY!,
+    apiKey: "sk_d1b762ed-a8b5-416e-9692-64129a950be5.WAsoWIiEJP4Qs8RB5jb3FF2Fynz5x/JUUqKQ3nCgLdw",
   });
   await kernel.browsers.deleteByID(sessionId);
 }

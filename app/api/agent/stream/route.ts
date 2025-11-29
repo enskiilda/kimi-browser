@@ -110,13 +110,14 @@ export async function GET(request: Request) {
       const logger = createStagehandUserLogger(send, { forwardStepEvents: false });
 
       const stagehand = new Stagehand({
-        env: "LOCAL",
+        env: "BROWSERBASE",
         localBrowserLaunchOptions: {
           cdpUrl: cdpWsUrl,
         },
-        modelName: "openai/gpt-4o",
+        modelName: "moonshotai/kimi-k2-instruct-0905",
         modelClientOptions: {
-          apiKey: process.env.OPENAI_API_KEY,
+          apiKey: "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",
+          baseURL: "https://api.groq.com/openai/v1",
         },
         useAPI: false,
         verbose: 2,
@@ -143,16 +144,17 @@ export async function GET(request: Request) {
         send("start", {
           sessionId,
           goal,
-          model: "gemini-2.5-computer-use-preview-10-2025",
+          model: "moonshotai/kimi-k2-instruct-0905",
           init,
           startedAt: new Date().toISOString(),
         });
 
         const agent = stagehand.agent({
-          provider: "google", 
-          model: "gemini-2.5-computer-use-preview-10-2025",
+          provider: "openai", 
+          model: "moonshotai/kimi-k2-instruct-0905",
           options: {
-            apiKey: process.env.GOOGLE_API_KEY,
+            apiKey: "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",
+            baseURL: "https://api.groq.com/openai/v1",
           },
           instructions: AGENT_INSTRUCTIONS,
         });
